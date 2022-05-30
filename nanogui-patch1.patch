@@ -1,0 +1,59 @@
+Index: sdlgui/nanovg_rt.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/sdlgui/nanovg_rt.h b/sdlgui/nanovg_rt.h
+--- a/sdlgui/nanovg_rt.h	(revision 2732ede1940652fcb36be6e31f4bd824766fb2bf)
++++ b/sdlgui/nanovg_rt.h	(date 1653623106541)
+@@ -219,7 +219,7 @@
+   return y;
+ }
+ 
+-inline float lerp(float x, float y, float t) { return x + t * (y - x); }
++inline float lerp_(float x, float y, float t) { return x + t * (y - x); }
+ 
+ // bool myisnan(float a) {
+ //  volatile float d = a;
+@@ -243,8 +243,8 @@
+     }
+ 
+     for (int i = 0; i < 4; i++) {
+-      rgba[i] = lerp(lerp(texel[0][i], texel[1][i], dx),
+-                     lerp(texel[2][i], texel[3][i], dx), dy);
++      rgba[i] = lerp_(lerp_(texel[0][i], texel[1][i], dx),
++                     lerp_(texel[2][i], texel[3][i], dx), dy);
+     }
+ 
+   } else {
+@@ -258,7 +258,7 @@
+ 
+     for (int i = 0; i < stride; i++) {
+       rgba[i] = texel[0][i]; // NEAREST
+-      // rgba[i] = lerp(lerp(texel[0][i], texel[1][i], dx), lerp(texel[2][i],
++      // rgba[i] = lerp_(lerp_(texel[0][i], texel[1][i], dx), lerp_(texel[2][i],
+       // texel[3][i], dx), dy);
+     }
+   }
+@@ -287,8 +287,8 @@
+     }
+ 
+     for (int i = 0; i < 4; i++) {
+-      rgba[i] = lerp(lerp(texel[0][i], texel[1][i], dx),
+-                     lerp(texel[2][i], texel[3][i], dx), dy);
++      rgba[i] = lerp_(lerp_(texel[0][i], texel[1][i], dx),
++                     lerp_(texel[2][i], texel[3][i], dx), dy);
+     }
+ 
+   } else {
+@@ -301,8 +301,8 @@
+     }
+ 
+     for (int i = 0; i < stride; i++) {
+-      rgba[i] = lerp(lerp(texel[0][i], texel[1][i], dx),
+-                     lerp(texel[2][i], texel[3][i], dx), dy);
++      rgba[i] = lerp_(lerp_(texel[0][i], texel[1][i], dx),
++                     lerp_(texel[2][i], texel[3][i], dx), dy);
+     }
+   }
+ 
